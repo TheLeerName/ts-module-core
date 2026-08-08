@@ -13,7 +13,7 @@ Allows to write any TS scripts as modules of single app, includes:
 ```
 git clone https://github.com/TheLeerName/ts-module-core
 cd ts-module-core
-npm i
+npm i --allow-git=all
 ```
 4. Choose modules which you want to use:
 
@@ -46,7 +46,7 @@ git submodule update --init modules/<name>
 - `package.json`
 - `index.js`
 - `loop.bat` (if host machine on Windows) / `loop.sh` (if host machine on Linux)
-3. Do command `npm i --omit=dev --no-bin-links` to download only production packages
+3. Do command `npm i --omit=dev --allow-git=all --no-bin-links` to download only production packages
 4. Run the app, you already know how
 
 ## TODO
@@ -56,6 +56,7 @@ git submodule update --init modules/<name>
 - module twitch-chat-bot: command `!rank` - works exactly like `!uid` but for valorant
 - module twitch-chat-bot: command `!poll` - starts poll by arguments if just write !poll bot will send arguments needed
 - module telegram: post message with socials on each post comments in channel
+- loading node.js package dependencies from modules (for now they must be specified in `package.json` in core)
 
 > [!IMPORTANT]
 > ⢰⣶⣶⣦⣝⢝⢕⢕⠅⡆⢕⢕⢕⢕⢕⣴⠏⣠⡶⠛⡉⡉⡛⢶⣦⡀⠐⣕\
