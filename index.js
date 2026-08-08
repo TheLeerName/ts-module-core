@@ -1,1 +1,2 @@
-require("./dist/core/index.js").main();
+import Main from "./dist/index.js";
+Main.initialize();

@@ -1,16 +1,41 @@
 {
-  "devDependencies": {
-    "@types/humanize-duration": "^3.27.4",
-    "rimraf": "^6.1.2",
-    "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "discord.js": "^14.18.0",
-    "humanize-duration": "^3.32.1",
-    "twitch.ts": "github:TheLeerName/twitch.ts"
-  },
-  "scripts": {
-    "clean": "rimraf dist/",
-    "build": "npm run clean & npx tsc & node set-version.js"
-  }
+	"version": "2.0.28",
+	"devDependencies": {
+		"@types/humanize-duration": "^3.27.4",
+		"@types/node": "^26.0.1",
+		"@types/ssh2-sftp-client": "^9.0.6",
+		"rimraf": "^6.1.3",
+		"typescript": "^6.0.3"
+	},
+	"dependencies": {
+		"discord.js": "^14.26.4",
+		"humanize-duration": "^3.33.2",
+		"rcon": "^1.1.0",
+		"rcon-client": "^4.2.5",
+		"ssh2-sftp-client": "^12.1.1",
+		"twitch.ts": "github:TheLeerName/twitch.ts#v1.6.4",
+		"yaml": "^2.9.0"
+	},
+	"scripts": {
+		"clean": "rimraf dist/",
+		"build": "npm run clean & npx tsc & node macros.js"
+	},
+	"type": "module",
+	"macros": [
+		{
+			"fromFile": "./package.json",
+			"fromValue": "version",
+			"toFile": "./dist/index.js",
+			"toValue": "this.version"
+		},
+		{
+			"value": 67,
+			"toFile": "./dist/log.js",
+			"toValue": "FATAL_PROCESS_EXIT_CODE"
+		}
+	],
+	"allowScripts": {
+		"ssh2@1.17.0": true,
+		"cpu-features@0.0.10": true
+	}
 }

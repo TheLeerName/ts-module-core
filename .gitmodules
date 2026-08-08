@@ -1,3 +1,0 @@
-[submodule "modules/twitch-notifications"]
-	path = modules/twitch-notifications
-	url = git@github.com:TheLeerName/db-module-twitch-notifications.git

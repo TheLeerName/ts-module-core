@@ -3,7 +3,3 @@
 /package-lock.json
 
 /data
-/config.ini
-
-/modules/guest-text-channel
-/modules/verification-reaction
