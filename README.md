@@ -12,7 +12,7 @@ npm i
 ```
 4. Choose modules which you want to use:
 | Module | Description | Dependencies |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [ts-module-discord](https://github.com/TheLeerName/ts-module-discord) | Contains methods to use Discord API | *None* |
 | [ts-module-discord-guest-text-channel](https://github.com/TheLeerName/ts-module-discord-guest-text-channel) | Adds discord text channel, which opens only for voice members | [ts-module-discord](https://github.com/TheLeerName/ts-module-discord) |
 | [ts-module-discord-rooms](https://github.com/TheLeerName/ts-module-discord-rooms) | Adds discord private rooms as voice channels, which can be created by joining specified voice channel. Also it can be customized by their owner (editing channel options) | [ts-module-discord](https://github.com/TheLeerName/ts-module-discord) |
