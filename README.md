@@ -22,9 +22,12 @@ npm i
 |[ts-module-twitch-in-discord-commands](https://github.com/TheLeerName/ts-module-twitch-in-discord-commands)|Adds discord slash commands which uses Twitch API (for now only sending info of specified twitch channel)|[ts-module-discord](https://github.com/TheLeerName/ts-module-discord), [ts-module-twitch](https://github.com/TheLeerName/ts-module-twitch)|
 |[ts-module-twitch-notifications](https://github.com/TheLeerName/ts-module-twitch-notifications)|Adds twitch channel stream notifications as messages in discord channel|[ts-module-discord](https://github.com/TheLeerName/ts-module-discord), [ts-module-twitch](https://github.com/TheLeerName/ts-module-twitch)|
 
-1. Add git submodule for each selected by you module with command `git submodule update --init modules/<name>`
-2. Compile with command `npm run build`
-3. Run the app:
+1. Add git submodule for each selected by you module with command:
+```
+git submodule update --init modules/<name>
+```
+1. Compile with command `npm run build`
+2. Run the app:
 - Linux -> run in terminal `sh loop.sh`
 - Windows -> open file `loop.bat`
 
@@ -32,7 +35,12 @@ npm i
 > [!TIP]
 > It also can be hosted on your Android phone! (make sure you will have phone and connection to internet on it working 24/7)
 1. Compile scripts where it possible
-2. Send files/folders to host machine: `dist`, `data` (if you already have it created), `package.json`, `index.js`, `loop.bat` (if host machine on Windows), `loop.sh` (if host machine on Linux)
+2. Send files/folders to host machine:
+- `dist`
+- `data` (if you already have it created)
+- `package.json`
+- `index.js`
+- `loop.bat` (if host machine on Windows) / `loop.sh` (if host machine on Linux)
 3. Do command `npm i --omit=dev --no-bin-links` to download only production packages
 4. Run the app, you already know how
 
