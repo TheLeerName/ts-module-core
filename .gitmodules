@@ -1,3 +1,6 @@
 [submodule "src/modules/ts-module-discord"]
 	path = src/modules/ts-module-discord
 	url = https://github.com/TheLeerName/ts-module-discord
+[submodule "src/modules/ts-module-discord-guest-text-channel"]
+	path = src/modules/ts-module-discord-guest-text-channel
+	url = https://github.com/TheLeerName/ts-module-discord-guest-text-channel
