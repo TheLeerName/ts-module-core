@@ -29,7 +29,7 @@ npm i --allow-git=all
 
 1. Add git submodule for each selected by you module with command:
 ```
-git submodule update --init modules/<name>
+git submodule update --init src/modules/<name>
 ```
 1. Compile with command `npm run build`
 2. Run the app:
