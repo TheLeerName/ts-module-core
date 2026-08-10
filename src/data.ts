@@ -23,7 +23,7 @@ export class BaseData {
 
 		if (json == null || !(typeof json === "object" && !Array.isArray(json)))
 			return false;
-		if (typeof json?.[name] === "string") {
+		if (typeof json[name] === "string") {
 			if (fromSave) fromSave(json[name]);
 			else (this as any)[name] = json[name];
 			return true;
@@ -38,7 +38,7 @@ export class BaseData {
 
 		if (json == null || !(typeof json === "object" && !Array.isArray(json)))
 			return false;
-		if (typeof json?.[name] === "string") {
+		if (typeof json[name] === "string") {
 			if (fromSave) await fromSave(json[name]);
 			else (this as any)[name] = json[name];
 			return true;
@@ -53,7 +53,7 @@ export class BaseData {
 
 		if (json == null || !(typeof json === "object" && !Array.isArray(json)))
 			return false;
-		if (typeof json?.[name] === "number") {
+		if (typeof json[name] === "number") {
 			if (fromSave) fromSave(json[name]);
 			else (this as any)[name] = json[name];
 			return true;
@@ -68,7 +68,7 @@ export class BaseData {
 
 		if (json == null || !(typeof json === "object" && !Array.isArray(json)))
 			return false;
-		if (typeof json?.[name] === "number") {
+		if (typeof json[name] === "number") {
 			if (fromSave) await fromSave(json[name]);
 			else (this as any)[name] = json[name];
 			return true;
@@ -83,7 +83,7 @@ export class BaseData {
 
 		if (json == null || !(typeof json === "object" && !Array.isArray(json)))
 			return false;
-		if (typeof json?.[name] === "boolean") {
+		if (typeof json[name] === "boolean") {
 			if (fromSave) fromSave(json[name]);
 			else (this as any)[name] = json[name];
 			return true;
@@ -98,7 +98,7 @@ export class BaseData {
 
 		if (json == null || !(typeof json === "object" && !Array.isArray(json)))
 			return false;
-		if (typeof json?.[name] === "boolean") {
+		if (typeof json[name] === "boolean") {
 			if (fromSave) await fromSave(json[name]);
 			else (this as any)[name] = json[name];
 			return true;
