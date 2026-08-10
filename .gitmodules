@@ -4,3 +4,6 @@
 [submodule "src/modules/ts-module-discord-guest-text-channel"]
 	path = src/modules/ts-module-discord-guest-text-channel
 	url = https://github.com/TheLeerName/ts-module-discord-guest-text-channel
+[submodule "src/modules/ts-module-discord-rooms"]
+	path = src/modules/ts-module-discord-rooms
+	url = https://github.com/TheLeerName/ts-module-discord-rooms
