@@ -1,12 +1,12 @@
-[submodule "src/modules/ts-module-discord"]
-	path = src/modules/ts-module-discord
+[submodule "src/modules/discord"]
+	path = src/modules/discord
 	url = https://github.com/TheLeerName/ts-module-discord
-[submodule "src/modules/ts-module-discord-guest-text-channel"]
-	path = src/modules/ts-module-discord-guest-text-channel
-	url = https://github.com/TheLeerName/ts-module-discord-guest-text-channel
-[submodule "src/modules/ts-module-discord-rooms"]
-	path = src/modules/ts-module-discord-rooms
+[submodule "src/modules/discord-rooms"]
+	path = src/modules/discord-rooms
 	url = https://github.com/TheLeerName/ts-module-discord-rooms
-[submodule "src/modules/ts-module-discord-reaction-autorole"]
-	path = src/modules/ts-module-discord-reaction-autorole
+[submodule "src/modules/discord-guest-text-channel"]
+	path = src/modules/discord-guest-text-channel
+	url = https://github.com/TheLeerName/ts-module-discord-guest-text-channel
+[submodule "src/modules/discord-reaction-autorole"]
+	path = src/modules/discord-reaction-autorole
 	url = https://github.com/TheLeerName/ts-module-discord-reaction-autorole
