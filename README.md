@@ -19,7 +19,7 @@ npm i --allow-git=all
 
 |Module|Description|Dependencies|
 |---|---|---|
-|[ts-module-discord](https://github.com/TheLeerName/ts-module-discord)|Contains methods to use Discord API|*None*|
+|[ts-module-discord](https://github.com/TheLeerName/ts-module-discord)|Contains methods to use Discord bot API|*None*|
 |[ts-module-discord-guest-text-channel](https://github.com/TheLeerName/ts-module-discord-guest-text-channel)|Adds discord text channel, which opens only for voice members|[ts-module-discord](https://github.com/TheLeerName/ts-module-discord)|
 |[ts-module-discord-rooms](https://github.com/TheLeerName/ts-module-discord-rooms)|Adds discord private rooms as voice channels, which can be created by joining specified voice channel. Also it can be customized by their owner (editing channel options)|[ts-module-discord](https://github.com/TheLeerName/ts-module-discord)|
 |[ts-module-discord-verification-reaction](https://github.com/TheLeerName/ts-module-discord-verification-reaction)|Adds specified role to any user reacted to specified discord message|[ts-module-discord](https://github.com/TheLeerName/ts-module-discord)|
