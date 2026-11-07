@@ -12,29 +12,36 @@ export interface IModule {
 	readonly name: string;
 	readonly data: BaseData;
 	readonly log: ReturnType<typeof Core.log.makeFunctions>;
+
+	isDisabled?: () => boolean;
 }
 
 /** key is module name */
 export class Modules extends Map<string, ModuleData> {
 	async initialize() {
-		let infoMessage = " modules initialized: ";
+		const moduleNames: string[] = [];
+		const moduleDisabledNames: string[] = [];
 
-		let count = 0;
 		for (const folder of fs.readdirSync("dist/modules", {withFileTypes: true})) {
 			if (fs.existsSync(`src/modules/${folder.name}/disabled`) || fs.existsSync(`dist/modules/${folder.name}/disabled`)) continue;
 			try {
 				const instance: IModule = (await import(`./modules/${folder.name}/index.js`)).default;
+				if (instance.isDisabled?.()) {
+					moduleDisabledNames.push(instance.name);
+					continue;
+				}
 				this.set(instance.name, {instance, folder: folder.name});
-				infoMessage += `${instance.name}, `;
-				count++;
+				moduleNames.push(instance.name);
 			} catch(error) {
 				Core.log.error(`Initializing module in folder ${folder.name} failed`, {error, args: {triedToRun: `import(./dist/modules/${folder.name}/index.js)`}});
 				continue;
 			}
 		}
 
-		if (count > 0)
-			Core.log.info(count + infoMessage.substring(0, infoMessage.length - 2));
+		if (moduleNames.length > 0)
+			Core.log.info(`${moduleNames.length} modules loaded: ${moduleNames.join(", ")}`);
+		if (moduleDisabledNames.length > 0)
+			Core.log.warn(`${moduleDisabledNames.length} modules weren't loaded: ${moduleDisabledNames.join(", ")}`);
 	}
 }
 export default new Modules();
