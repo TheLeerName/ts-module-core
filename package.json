@@ -27,11 +27,6 @@
 			"fromValue": "version",
 			"toFile": "./dist/index.js",
 			"toValue": "this.version"
-		},
-		{
-			"value": 67,
-			"toFile": "./dist/log.js",
-			"toValue": "FATAL_PROCESS_EXIT_CODE"
 		}
 	],
 	"allowScripts": {

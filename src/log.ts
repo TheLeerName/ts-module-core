@@ -1,7 +1,5 @@
 import Core from "./index.js";
 
-const FATAL_PROCESS_EXIT_CODE = "";
-
 export function makeFunctions(moduleName: string): {
 	info: (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
 	verbose: (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number}) => void,
@@ -316,7 +314,7 @@ export function fatal(msg: any, options?: {args?: Record<string, any>, error?: a
 		else
 			process.stdout.write(message.terminal);
 	}
-	return process.exit(options.errorCode ?? FATAL_PROCESS_EXIT_CODE);
+	return process.exit(options.errorCode ?? 1);
 }
 
 let stopTerminalOutput: boolean = true;
