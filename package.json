@@ -1,5 +1,5 @@
 {
-	"version": "2.0.31",
+	"version": "2.0.32",
 	"devDependencies": {
 		"@types/humanize-duration": "^3.27.4",
 		"@types/node": "^26.0.1",
@@ -13,7 +13,7 @@
 		"rcon": "^1.1.0",
 		"rcon-client": "^4.2.5",
 		"ssh2-sftp-client": "^12.1.1",
-		"twitch.ts": "github:TheLeerName/twitch.ts#v1.6.4",
+		"twitch.ts": "github:TheLeerName/twitch.ts#v2.0.4",
 		"yaml": "^2.9.0"
 	},
 	"scripts": {
