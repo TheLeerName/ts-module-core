@@ -203,10 +203,7 @@ export class BaseData {
 		return obj != null && typeof obj === "object" && !Array.isArray(obj);
 	}
 
-	save() {
-		this.saveAsync();
-	}
-	async saveAsync() {
+	async save() {
 		const json: any = {};
 		for (const [field, getter] of this.saveFields)
 			json[field] = await getter();
