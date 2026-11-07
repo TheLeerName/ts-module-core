@@ -1,22 +1,4 @@
-import readline, { type ReadLineOptions } from "node:readline";
-
-export interface ReadlineInterfaceAdvanced extends readline.Interface {
-	questionAsync: (query: string) => Promise<string>;
-}
-export namespace ReadlineInterfaceAdvanced {
-	/**
-	 * @param options.input If `undefined` will use `process.stdin`
-	 * @param options.output If `undefined`, will use `process.stdout`
-	 */
-	export function create(options?: Partial<ReadLineOptions>) {
-		options ??= {};
-		options.input ??= process.stdin;
-		options.output ??= process.stdout;
-		const rl = readline.createInterface(options as any);
-		(rl as ReadlineInterfaceAdvanced).questionAsync = async(query: string) => await new Promise<string>(resolve => rl.question(query, answer => resolve(answer)));
-		return rl as ReadlineInterfaceAdvanced;
-	}
-}
+import readline, { type ReadLineOptions } from "node:readline/promises";
 
 export type TerminalCommandOptions = TerminalCommandOptions.Default | TerminalCommandOptions.WithReadlineInterface;
 export namespace TerminalCommandOptions {
@@ -30,7 +12,7 @@ export namespace TerminalCommandOptions {
 
 	export interface WithReadlineInterface {
 		type: "WITH_READLINE_INTERFACE";
-		callback: (args: string[], rl: ReadlineInterfaceAdvanced) => Promise<boolean>;
+		callback: (args: string[], rl: readline.Interface) => Promise<boolean>;
 		readlineInterfaceOptions?: Partial<ReadLineOptions>;
 	}
 	export function isWithReadlineInterface(callback: TerminalCommandOptions): callback is TerminalCommandOptions.WithReadlineInterface {
@@ -64,7 +46,7 @@ export class TerminalCommands extends Map<string, TerminalCommandOptions> {
 			for (const [name, options] of this.entries()) {
 				if (argv[0] === name) {
 					if (TerminalCommandOptions.isWithReadlineInterface(options)) {
-						const rl = ReadlineInterfaceAdvanced.create();
+						const rl = readline.createInterface({input: process.stdin, output: process.stdout});
 						const result = await options.callback(argv.slice(name.length + 1), rl);
 						rl.close();
 						return result;
@@ -80,9 +62,6 @@ export class TerminalCommands extends Map<string, TerminalCommandOptions> {
 		this.clear(); // cuz we dont need commands in runtime
 		return false;
 	}
-
-	async question(rl: readline.Interface, query: string) {
-		return await new Promise<string>(resolve => rl.question(query, answer => resolve(answer)));
-	}
 }
 export default new TerminalCommands();
+export { default as readline, type ReadLineOptions, Readline } from "node:readline/promises";
