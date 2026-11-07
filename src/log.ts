@@ -135,7 +135,7 @@ export function warn(msg: any, options?: {args?: Record<string, any>, module?: s
 
 	// specify log type
 	message.file +=     `[WARN] `;
-	message.terminal += `[WARN] `;
+	message.terminal += `[\x1b[33mWARN\x1b[0m] `;
 
 	// script file path & log message
 	ignoreNextStacks = options.ignoreNextStacks ?? 1;
