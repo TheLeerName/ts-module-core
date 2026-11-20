@@ -14,7 +14,7 @@
 		"rcon": "^1.1.0",
 		"rcon-client": "^4.2.5",
 		"ssh2-sftp-client": "^12.1.1",
-		"twitch.ts": "github:TheLeerName/twitch.ts#v2.0.5",
+		"twitch.ts": "github:TheLeerName/twitch.ts#v2.0.6",
 		"yaml": "^2.9.0"
 	},
 	"scripts": {
