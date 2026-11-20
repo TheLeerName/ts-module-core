@@ -3,7 +3,7 @@ import Core from "./index.js";
 export function makeFunctions(moduleName: string): {
 	info: (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
 	verbose: (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number}) => void,
-	warn: (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
+	warn: (msg: any, options?: {args?: Record<string, any>, causedBy?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
 	error: (msg: any, options?: {args?: Record<string, any>, error?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
 	fatal: (msg: any, options?: {args?: Record<string, any>, error?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean, errorCode?: number}) => never,
 } {
@@ -18,13 +18,13 @@ export function makeFunctions(moduleName: string): {
 			if (!options)
 				options = {};
 			options.ignoreNextStacks = options.ignoreNextStacks ? options.ignoreNextStacks : 2;
-			return verbose(msg, { args: options?.args, module: options?.module ?? moduleName, ignoreNextStacks: options.ignoreNextStacks });
+			return verbose(msg, { args: options.args, module: options.module ?? moduleName, ignoreNextStacks: options.ignoreNextStacks });
 		},
 		warn: (msg, options) => {
 			if (!options)
 				options = {};
 			options.ignoreNextStacks = options.ignoreNextStacks ? options.ignoreNextStacks : 2;
-			return warn(msg, { args: options?.args, module: options?.module ?? moduleName, ignoreNextStacks: options.ignoreNextStacks, dontPrintTerminal: options?.dontPrintTerminal, dontPrintFile: options?.dontPrintFile });
+			return warn(msg, { args: options.args, causedBy: options.causedBy, module: options.module ?? moduleName, ignoreNextStacks: options.ignoreNextStacks, dontPrintTerminal: options.dontPrintTerminal, dontPrintFile: options.dontPrintFile });
 		},
 		error: (msg, options) => {
 			if (!options)
@@ -119,7 +119,7 @@ export function info(msg: any, options?: {args?: Record<string, any>, module?: s
 	}
 }
 
-export function warn(msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) {
+export function warn(msg: any, options?: {args?: Record<string, any>, causedBy?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) {
 	if (!options) options = {};
 	if (!options.module) options.module = Core.name;
 
@@ -147,6 +147,9 @@ export function warn(msg: any, options?: {args?: Record<string, any>, module?: s
 		message.file +=     `\n    ${k}: ${v}`;
 		//message.terminal += `\n    ${k}: \x1b[32m${v}\x1b[0m`;
 	}
+
+	if (options.causedBy)
+		message.file += `\nCaused by: ${options.causedBy instanceof Error ? `${options.causedBy.name}: ${options.causedBy.message}` : options.causedBy}`;
 
 	// stack trace
 	//if (stack) {
