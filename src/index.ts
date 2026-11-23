@@ -38,12 +38,13 @@ export class Core extends EventEmitter {
 		this.log.initialize();
 		this.log.info(`Running version ${this.version}`);
 
-		await this.modules.initialize();
+		await this.modules.load();
 
 		if (await TerminalCommands.run())
 			return;
 
 		this.log.releaseStoppedTerminalOutput();
+		await this.modules.initialize();
 		this.emit("initialized");
 	}
 
@@ -69,4 +70,6 @@ export class Core extends EventEmitter {
 export default new Core();
 
 export * from "./data.js";
+export * from "./log.js";
 export * from "./modules.js";
+export * from "./types.js";

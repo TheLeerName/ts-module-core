@@ -1,12 +1,19 @@
 import Core from "./index.js";
 
-export function makeFunctions(moduleName: string): {
-	info: (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
-	verbose: (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number}) => void,
-	warn: (msg: any, options?: {args?: Record<string, any>, causedBy?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
-	error: (msg: any, options?: {args?: Record<string, any>, error?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void,
-	fatal: (msg: any, options?: {args?: Record<string, any>, error?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean, errorCode?: number}) => never,
-} {
+export interface ModuleLogFunctions {
+	info: ModuleLogFunctionInfo;
+	verbose: ModuleLogFunctionVerbose;
+	warn: ModuleLogFunctionWarn;
+	error: ModuleLogFunctionError;
+	fatal: ModuleLogFunctionFatal;
+}
+export type ModuleLogFunctionInfo = (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void;
+export type ModuleLogFunctionVerbose = (msg: any, options?: {args?: Record<string, any>, module?: string, ignoreNextStacks?: number}) => void;
+export type ModuleLogFunctionWarn = (msg: any, options?: {args?: Record<string, any>, causedBy?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void;
+export type ModuleLogFunctionError = (msg: any, options?: {args?: Record<string, any>, error?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean}) => void;
+export type ModuleLogFunctionFatal = (msg: any, options?: {args?: Record<string, any>, error?: any, module?: string, ignoreNextStacks?: number, dontPrintTerminal?: boolean, dontPrintFile?: boolean, errorCode?: number}) => never;
+
+export function makeFunctions(moduleName: string): ModuleLogFunctions {
 	return {
 		info: (msg, options) => {
 			if (!options)

@@ -1,5 +1,5 @@
 {
-	"version": "2.0.34",
+	"version": "2.0.35",
 	"devDependencies": {
 		"@types/humanize-duration": "^3.27.4",
 		"@types/node": "^26.0.1",
