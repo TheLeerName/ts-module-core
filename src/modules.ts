@@ -101,7 +101,7 @@ export class Modules extends Map<string, ModuleData> {
 		}
 
 		if (executeOrder67.length > 0)
-			Core.log.info(`${executeOrder67.length} modules loaded: ${executeOrder67.join(", ")}`);
+			Core.log.info(`${executeOrder67.length} modules initialized: ${executeOrder67.join(", ")}`);
 	}
 }
 export default new Modules();
