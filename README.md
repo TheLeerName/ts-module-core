@@ -57,7 +57,6 @@ git submodule update --init src/modules/<name>
 - module twitch-chat-bot: command `!poll` - starts poll by arguments if just write !poll bot will send arguments needed
 - module telegram: post message with socials on each post comments in channel
 - loading node.js package dependencies from modules (for now they must be specified in `package.json` in core)
-- return await fun() to return fun() in async functions
 
 > [!IMPORTANT]
 > ⢰⣶⣶⣦⣝⢝⢕⢕⠅⡆⢕⢕⢕⢕⢕⣴⠏⣠⡶⠛⡉⡉⡛⢶⣦⡀⠐⣕<br>
