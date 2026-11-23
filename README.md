@@ -20,12 +20,12 @@ npm i --allow-git=all
 |Module|Description|Dependencies|
 |---|---|---|
 |[discord](https://github.com/TheLeerName/ts-module-discord)|Contains methods to use Discord bot API|*None*|
-|[discord-guest-text-channel](https://github.com/TheLeerName/ts-module-discord-guest-text-channel)|Adds discord text channel, which opens only for voice members|[discord](https://github.com/TheLeerName/ts-module-discord)|
+|[discord-guest-voice-channel](https://github.com/TheLeerName/ts-module-discord-guest-voice-channel)|Sets a permission overwrite ViewChannel to a voice channel when user connects to this channel (for example by moving them from other channel)|[discord](https://github.com/TheLeerName/ts-module-discord)|
 |[discord-rooms](https://github.com/TheLeerName/ts-module-discord-rooms)|Adds discord private rooms as voice channels, which can be created by joining specified voice channel. Also it can be customized by their owner (editing channel options)|[discord](https://github.com/TheLeerName/ts-module-discord)|
 |[discord-reaction-autorole](https://github.com/TheLeerName/ts-module-discord-reaction-autorole)|Adds specified role to any user reacted to specified discord message|[discord](https://github.com/TheLeerName/ts-module-discord)|
-|[twitch](https://github.com/TheLeerName/ts-module-twitch)|Contains methods to use Twitch API|*None*|
-|[twitch-in-discord-commands](https://github.com/TheLeerName/ts-module-twitch-in-discord-commands)|Adds discord slash commands which uses Twitch API (for now only sending info of specified twitch channel)|[discord](https://github.com/TheLeerName/ts-module-discord), [twitch](https://github.com/TheLeerName/ts-module-twitch)|
-|[twitch-notifications](https://github.com/TheLeerName/ts-module-twitch-notifications)|Adds twitch channel stream notifications as messages in discord channel|[discord](https://github.com/TheLeerName/ts-module-discord), [twitch](https://github.com/TheLeerName/ts-module-twitch)|
+|[twitch](https://github.com/TheLeerName/ts-module-twitch)|(WIP) Contains methods to use Twitch API|*None*|
+|[twitch-in-discord-commands](https://github.com/TheLeerName/ts-module-twitch-in-discord-commands)|(WIP) Adds discord slash commands which uses Twitch API (for now only sending info of specified twitch channel)|[discord](https://github.com/TheLeerName/ts-module-discord), [twitch](https://github.com/TheLeerName/ts-module-twitch)|
+|[twitch-notifications](https://github.com/TheLeerName/ts-module-twitch-notifications)|(WIP) Adds twitch channel stream notifications as messages in discord channel|[discord](https://github.com/TheLeerName/ts-module-discord), [twitch](https://github.com/TheLeerName/ts-module-twitch)|
 
 1. Add git submodule for each selected by you module with command:
 ```
