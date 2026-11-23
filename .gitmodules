@@ -7,9 +7,12 @@
 [submodule "src/modules/discord-reaction-autorole"]
 	path = src/modules/discord-reaction-autorole
 	url = https://github.com/TheLeerName/ts-module-discord-reaction-autorole
-[submodule "ts-module-discord-guest-voice-channel"]
-	path = ts-module-discord-guest-voice-channel
-	url = https://github.com/TheLeerName/ts-module-discord-guest-voice-channel
 [submodule "src/modules/discord-guest-voice-channel"]
 	path = src/modules/discord-guest-voice-channel
 	url = https://github.com/TheLeerName/ts-module-discord-guest-voice-channel
+[submodule "src/modules/twitch"]
+	path = src/modules/twitch
+	url = https://github.com/TheLeerName/ts-module-twitch
+[submodule "src/modules/twitch-in-discord-commands"]
+	path = src/modules/twitch-in-discord-commands
+	url = https://github.com/TheLeerName/ts-module-twitch-in-discord-commands
